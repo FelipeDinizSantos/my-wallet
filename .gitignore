@@ -1,6 +1,6 @@
 .env
-req.http
-.vscode
+*.http
 
+/.vscode
 /dist
 /node_modules
