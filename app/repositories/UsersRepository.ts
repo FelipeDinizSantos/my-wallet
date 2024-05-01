@@ -7,7 +7,12 @@ interface IUser{
     cpf: string;
 }
 
-class UserRepository{
+interface IFindUser{
+    email: string;
+    cpf: string; 
+}
+
+class UsersRepository{
     private users:User[];
 
     constructor(){
@@ -24,6 +29,11 @@ class UserRepository{
     all():User[]{
         return this.users;
     }
+
+    findByEmailOrCPF({email, cpf}:IFindUser): User | undefined{
+        const user = this.users.find(item => item.email === email || item.cpf === cpf);
+        return user;
+    }
 }
 
-export {UserRepository};
+export {UsersRepository};
